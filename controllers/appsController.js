@@ -45,9 +45,9 @@ exports.sortApps = (req, res) => {
       });
     }
 
-    results = results.filter((app) => {
-      return app.Genres.toLowerCase() === genres.toLowerCase();
-    });
+    results = results.filter(
+      (app) => app.Genres.toLowerCase() === genres.toLowerCase()
+    );
   }
 
   return res.json({ success: true, results });
