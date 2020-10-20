@@ -16,7 +16,7 @@ exports.sortApps = (req, res) => {
     if (!['rating', 'app'].includes(sort)) {
       return res.status(400).json({
         success: false,
-        message: 'You must provide a valid sort'
+        message: 'You must provide a valid sort query'
       });
     }
   }
@@ -41,7 +41,7 @@ exports.sortApps = (req, res) => {
     if (!genreTypes.includes(genres.toLowerCase())) {
       return res.status(400).json({
         success: false,
-        message: 'You must provide a valid genre'
+        message: 'You must provide a valid genre querys'
       });
     }
 
