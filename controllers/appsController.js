@@ -2,6 +2,14 @@ const data = require('../data');
 
 exports.sortApps = (req, res) => {
   const { sort, genres } = req.query;
+  const genreTypes = [
+    'action',
+    'puzzle',
+    'strategy',
+    'casual',
+    'arcade',
+    'card'
+  ];
   let results = data;
 
   if (sort) {
@@ -30,7 +38,7 @@ exports.sortApps = (req, res) => {
   }
 
   if (genres) {
-    if (!checkGenre(genres.toLowerCase())) {
+    if (!genreTypes.includes(genres.toLowerCase())) {
       return res.status(400).json({
         success: false,
         message: 'You must provide a valid genre'
@@ -44,9 +52,3 @@ exports.sortApps = (req, res) => {
 
   return res.json({ success: true, results });
 };
-
-function checkGenre(genre) {
-  return ['action', 'puzzle', 'strategy', 'casual', 'arcade', 'card'].includes(
-    genre
-  );
-}
