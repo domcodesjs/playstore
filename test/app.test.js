@@ -3,15 +3,6 @@ const { expect } = require('chai');
 const supertest = require('supertest');
 
 describe('app module', () => {
-  const genreTypes = [
-    'action',
-    'puzzle',
-    'strategy',
-    'casual',
-    'arcade',
-    'card'
-  ];
-
   describe('get apps', () => {
     it('should return a JSON array of all apps', () => {
       return supertest(app)
